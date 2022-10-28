@@ -198,4 +198,9 @@ php artisan l5-swagger:generate
 
 Sur le lien /docs/api-docs.json il est possible de récupérer le texte brut et de l'importer dans Postman.
 
+## Ajouter la remote template
+
+````bash
+git remote add template https://github.com/NicolasGretten/template.api.collect.verything.git
+````
 
