@@ -1,5 +1,5 @@
 # Collect&Verything API
-## Starting new project
+## Créer un nouveau projet
 ```bash
 composer install
 ```
@@ -8,7 +8,7 @@ composer install
 npm install
 ```
 
-## environnement de Dev en Localhost
+## Environnement de Dev en Localhost
 
 prérequis: télécharger le zip et suivre les instructions du README.md
 
@@ -16,7 +16,7 @@ https://drive.google.com/file/d/12BPhUyn6tKy5MmknZ0EEDFTGBWGErvyv/view?usp=shari
 
 Si besoin d'un postgreSQL avec docker : https://github.com/NicolasGretten/docker-compose-postgresql.git
 
-## .ENV
+## .Env
 
 Les champ **** sont à modifier dans le .env.example et il faut le renommer en .env
 
