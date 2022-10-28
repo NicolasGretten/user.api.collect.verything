@@ -21,9 +21,10 @@ class Controller extends BaseController
 
     /**
      * * @OA\Get(
-     *     path="/",
-     *     description="Example",
-     *     @OA\Response(response="default", description="Welcome page")
+     *      path="/",
+     *      description="Example",
+     *      @OA\Response(response="default", description="Welcome page")
+     *      security={{"bearer_token":{}}}
      * )
      *
      * @param Request $request
