@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('storeId');
             $table->string('addressId');
             $table->timestamp('deletedAt')->nullable();
-            $table->timestamps();
+            $table->timestamp('updatedAt')->nullable();
+            $table->timestamp('createdAt')->nullable();
         });
     }
 

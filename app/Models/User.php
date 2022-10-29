@@ -22,6 +22,8 @@ class User extends Authenticatable
 
     protected $dates = ['createdAt, updatedAt, deletedAt'];
     const DELETED_AT = 'deletedAt';
+    const UPDATED_AT = 'updatedAt';
+    const CREATED_AT = 'createdAt';
     protected $connection = 'data';
     protected $table = 'users';
     protected $primaryKey = 'id';
