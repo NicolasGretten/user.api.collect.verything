@@ -12,12 +12,13 @@ use Illuminate\Support\Str;
  */
 trait IdTrait
 {
-    public function generateId($prefix, Model $model) {
+    public function generateId($prefix, Model $model): string
+    {
         static $counter = 0;
 
-        $id = substr($prefix . '_' . md5(Str::uuid()),0 ,25);
+        $id = $prefix . '-' . Str::uuid();
 
-        $idAlreadyAllowed = $model::where('id', $id)->count() == 0 ? false : true;
+        $idAlreadyAllowed = !($model::where('id', $id)->count() == 0);
 
         while($idAlreadyAllowed == true) {
             if($counter == 5) {
