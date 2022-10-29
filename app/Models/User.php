@@ -11,6 +11,10 @@ use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @method static select(string $string)
+ * @property mixed accountId
+ * @property mixed storeId
+ * @property mixed addressId
+ * @property mixed id
  */
 class User extends Authenticatable
 {
@@ -30,9 +34,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
     ];
 
     /**
@@ -41,8 +42,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
     ];
 
     /**
@@ -51,6 +50,5 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 }

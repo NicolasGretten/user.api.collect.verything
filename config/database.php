@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'data'),
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,17 @@ return [
     */
 
     'connections' => [
-
+        'data' => [
+            'driver'    => 'pgsql',
+            'host'      => env('DB1_HOST'),
+            'port'      => env('DB1_PORT'),
+            'database'  => env('DB1_DATABASE'),
+            'username'  => env('DB1_USERNAME'),
+            'password'  => env('DB1_PASSWORD'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'strict'    => false,
+        ],
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
