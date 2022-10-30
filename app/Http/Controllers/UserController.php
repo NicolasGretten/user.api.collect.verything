@@ -45,7 +45,7 @@ class UserController extends Controller
     public function retrieve(Request $request): JsonResponse
     {
         try{
-            $this->validate($request, [
+            $request->validate([
                 'id' => 'string',
             ]);
 
@@ -106,7 +106,7 @@ class UserController extends Controller
     public function create(Request $request): JsonResponse
     {
         try{
-            $this->validate($request, [
+            $request->validate([
                 'addressId' => 'string|required',
                 'storeId' => 'string|required',
                 'accountId' => 'string|required',
@@ -166,7 +166,7 @@ class UserController extends Controller
     public function update(Request $request): JsonResponse
     {
         try{
-            $this->validate($request, [
+            $request->validate([
                 'addressId' => 'string',
                 'storeId' => 'string',
                 'accountId' => 'string',
