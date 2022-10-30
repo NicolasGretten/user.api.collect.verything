@@ -95,9 +95,9 @@ class UserController extends Controller
      *      tags={"Users"},
      *      summary="Post a new user",
      *      description="Create a new user",
-     *      @OA\Parameter(name="addressId", description="User's address", required=true, in="query"),
-     *      @OA\Parameter(name="storeId", description="User's store", required=true, in="query"),
-     *      @OA\Parameter(name="accountId", description="User's account", required=true, in="query"),
+     *      @OA\Parameter(name="address_id", description="User's address", required=true, in="query"),
+     *      @OA\Parameter(name="store_id", description="User's store", required=true, in="query"),
+     *      @OA\Parameter(name="account_id", description="User's account", required=true, in="query"),
      *      @OA\Response(response=201,description="Account created"),
      *      @OA\Response(response=400, description="Bad request"),
      *      @OA\Response(response=404, description="Resource Not Found")
@@ -107,9 +107,9 @@ class UserController extends Controller
     {
         try{
             $request->validate([
-                'addressId' => 'string|required',
-                'storeId' => 'string|required',
-                'accountId' => 'string|required',
+                'address_id' => 'string|required',
+                'store_id' => 'string|required',
+                'account_id' => 'string|required',
             ]);
 
             DB::beginTransaction();
@@ -117,9 +117,9 @@ class UserController extends Controller
             $user = new User;
 
             $user->id = $this->generateId('user', $user);
-            $user->addressId = $request->input('addressId');
-            $user->storeId = $request->input('storeId');
-            $user->accountId = $request->input('accountId');
+            $user->address_id = $request->input('address_id');
+            $user->store_id = $request->input('store_id');
+            $user->account_id = $request->input('account_id');
 
             $user->save();
 
@@ -151,9 +151,9 @@ class UserController extends Controller
      *      tags={"Users"},
      *      summary="Patch a user",
      *      description="Update a user",
-     *      @OA\Parameter(name="addressId", description="First name", in="query"),
-     *      @OA\Parameter(name="storeId", description="Last name", in="query"),
-     *      @OA\Parameter(name="accountId", description="gender", in="query"),
+     *      @OA\Parameter(name="address_id", description="First name", in="query"),
+     *      @OA\Parameter(name="store_id", description="Last name", in="query"),
+     *      @OA\Parameter(name="account_id", description="gender", in="query"),
      *      @OA\Response(
      *          response=200,
      *          description="Account updated"
@@ -167,9 +167,9 @@ class UserController extends Controller
     {
         try{
             $request->validate([
-                'addressId' => 'string',
-                'storeId' => 'string',
-                'accountId' => 'string',
+                'address_id' => 'string',
+                'store_id' => 'string',
+                'account_id' => 'string',
             ]);
 
             DB::beginTransaction();
@@ -183,9 +183,9 @@ class UserController extends Controller
                 throw new ModelNotFoundException('User not found.', 404);
             }
 
-            $user->addressId = $request->input('addressId', $user->getOriginal('addressId'));
-            $user->storeId = $request->input('storeId', $user->getOriginal('storeId'));
-            $user->accountId = $request->input('accountId', $user->getOriginal('accountId'));
+            $user->address_id = $request->input('address_id', $user->getOriginal('address_id'));
+            $user->store_id = $request->input('store_id', $user->getOriginal('store_id'));
+            $user->account_id = $request->input('account_id', $user->getOriginal('account_id'));
 
             $user->save();
 

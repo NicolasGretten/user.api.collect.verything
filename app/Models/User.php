@@ -20,10 +20,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    protected $dates = ['createdAt, updatedAt, deletedAt'];
-    const DELETED_AT = 'deletedAt';
-    const UPDATED_AT = 'updatedAt';
-    const CREATED_AT = 'createdAt';
+    protected $dates = ['created_at, updated_at, deleted_at'];
     protected $connection = 'data';
     protected $table = 'users';
     protected $primaryKey = 'id';

@@ -1,18 +1,208 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Template API Collect&Verything",
+        "title": "User API Collect&Verything",
         "version": "0.1"
     },
     "paths": {
-        "/": {
+        "/api/users/{id}": {
             "get": {
-                "description": "Home page",
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get user information",
+                "description": "Returns user data",
+                "operationId": "retrieve",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true
+                    }
+                ],
                 "responses": {
-                    "default": {
-                        "description": "Welcome page"
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Account not found."
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "Servor Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete a user",
+                "description": "Soft delete a user",
+                "operationId": "delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Account id",
+                        "required": true,
+                        "schema": {
+                            "type": "String"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Account deleted"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Patch a user",
+                "description": "Update a user",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "address_id",
+                        "in": "query",
+                        "description": "First name"
+                    },
+                    {
+                        "name": "store_id",
+                        "in": "query",
+                        "description": "Last name"
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "gender"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Account updated"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users information",
+                "description": "Returns user data",
+                "operationId": "list",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    },
+                    "500": {
+                        "description": "Servor Error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Post a new user",
+                "description": "Create a new user",
+                "operationId": "create",
+                "parameters": [
+                    {
+                        "name": "address_id",
+                        "in": "query",
+                        "description": "User's address",
+                        "required": true
+                    },
+                    {
+                        "name": "store_id",
+                        "in": "query",
+                        "description": "User's store",
+                        "required": true
+                    },
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "description": "User's account",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Account created"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
                     }
                 }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     },

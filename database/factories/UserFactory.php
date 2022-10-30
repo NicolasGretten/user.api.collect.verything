@@ -18,9 +18,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'addressId' => '00000000-0000-0000-000000000002',
-            'storeId' => '00000000-0000-0000-000000000003',
-            'accountId' => '00000000-0000-0000-000000000000',
+            'address_id' => 'address-00000000-0000-0000-000000000000',
+            'store_id' => 'store-00000000-0000-0000-000000000000',
+            'account_id' => 'account-00000000-0000-0000-000000000000',
         ];
     }
 }
